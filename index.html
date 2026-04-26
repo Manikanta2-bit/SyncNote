@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YeahPad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ✅ Favicon -->
+  <link rel="icon" href="https://i.ibb.co/HL21QGst/seresfes.png">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto;
+      background-color: #9f98de;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: #0087fe;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-box img {
+      width: 45px;
+      height: 45px;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+
+    .logo-box span {
+      font-size: 20px;
+      font-weight: bold;
+      color: #0A66C2;
+    }
+
+    .nav-links a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #0A66C2;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .hero img {
+      width: 100px;
+      border-radius: 12px;
+    }
+
+    /* MAIN */
+    .main {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card {
+      width: 600px;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      padding: 15px;
+    }
+
+    .workspace-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .workspace-box input {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    .workspace-box button {
+      margin-top: 0;
+      padding: 10px 15px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    button {
+      background: #0A66C2;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .file-box {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+      color: gray;
+    }
+
+    img { max-width: 100%; }
+    iframe { width: 100%; height: 250px; }
+
+    /* SOCIAL SIDEBAR */
+    .social-sidebar {
+      position: fixed;
+      top: 40%;
+      left: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 1000;
+    }
+
+    .social-sidebar img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .social-sidebar img:hover {
+      transform: scale(1.2);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: white;
+      margin-top: 40px;
+      border-top: 1px solid #ddd;
+    }
+    .dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+.dark-mode .card {
+  background: #1e1e1e;
+  color: white;
+}
+
+.dark-mode .workspace-box input {
+  background: #2a2a2a;
+  color: white;
+  border-color: #444;
+}
+
+.dark-mode textarea {
+  background: #1e1e1e;
+  color: white;
+}
+
+.dark-mode .navbar {
+  background: #1e1e1e;
+}
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+.file-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin-top: 15px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.file-box button {
+  background: #0A66C2;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.file-box button:hover {
+  background: #004182;
+}
+    footer a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0A66C2;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo-box">
+    <img src="https://i.ibb.co/HL21QGst/seresfes.png" alt="YeahPad Logo">
+    <span>YeahPad</span>
+    
+  </div>
+
+  <div class="nav-links">
+    <a href="/">Home</a>  
+    <a href="/blog.html">Blog</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</div>
+<!-- HERO -->
+<div class="hero">
+  <img src="https://i.ibb.co/HL21QGst/seresfes.png" alt="logo">
+  <h2>Write. Upload. Share.</h2>
+</div>
+<!-- SOCIAL SIDEBAR -->
+<div class="social-sidebar">
+  <a href="https://www.linkedin.com/in/manikanta-j-87741a32a/" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
+  </a>
+
+  <a href="https://www.instagram.com/_.maniiee._reddy_" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+  </a>
+
+  <a href="https://github.com/Manikanta2-bit" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png">
+  </a>
+
+  <a href="https://twitter.com/Manikanta1k2006" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png">
+  </a>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="card">
+
+    <div class="workspace-box">
+      <input type="text" id="workspaceName" placeholder="Enter your accessible workspacename..." onkeypress="if(event.key === 'Enter') handleJoin()">
+      <button onclick="handleJoin()">Open Workspace</button>
+    </div>
+
+    <textarea id="editor" placeholder="Write something..."></textarea>
+
+    <input type="file" id="fileInput">
+    <button onclick="uploadFile()">Upload</button>
+
+    <div id="files"></div>
+
+  </div>
+</div>
+
+<h2 align="center">Free File Sharing & Notes Platform</h2>
+<p align="center">Upload, share, and manage your files easily.</p>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/privacy.html">Privacy Policy</a>
+  <a href="/terms.html">Terms</a>
+  <a href="/about.html">About</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/blogs.html">Blogs</a>
+    <br><br>
+  <font dir="auto" style="vertical-align: inherit;">© 2026 Manikanta J</font>
+</footer>
+
+<script>
+const filesDiv = document.getElementById("files");
+
+// 🔥 Extract document ID from URL
+const docId = window.location.pathname.substring(1) || "main";
+let currentFiles = [];
+
+// ✅ Pre-fill input with current workspace name (if any)
+document.getElementById("workspaceName").value = decodeURIComponent(window.location.pathname.substring(1));
+
+// 🔥 HANDLE JOIN
+function handleJoin() {
+  const name = document.getElementById("workspaceName").value.trim();
+  if (name) {
+    window.location.href = "/" + encodeURIComponent(name);
+  }
+}
+
+// 🔥 LOAD FILES
+async function loadFiles() {
+  const res = await fetch("/doc/" + docId);
+  const data = await res.json();
+
+  currentFiles = data.files || [];
+
+  document.getElementById("editor").value = data.content || "";
+
+  filesDiv.innerHTML = "";
+  currentFiles.forEach(showFile);
+}
+
+// 🔥 SAVE FILES
+async function saveFiles() {
+  await fetch("/doc/" + docId, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      content: document.getElementById("editor").value,
+      files: currentFiles
+    })
+  });
+}
+
+// 🔥 AUTO SAVE TEXT
+let typingTimer;
+document.getElementById("editor").addEventListener("input", () => {
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(saveFiles, 800);
+});
+
+// 🔥 UPLOAD
+async function uploadFile() {
+  const file = document.getElementById("fileInput").files[0];
+  if (!file) return alert("Select file");
+
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const res = await fetch("/upload", {
+    method: "POST",
+    body: formData
+  });
+
+  const data = await res.json();
+
+  currentFiles.push({ url: data.url, name: data.name });
+  showFile({ url: data.url, name: data.name });
+  saveFiles();
+}
+
+function showFile(file) {
+  const div = document.createElement("div");
+  div.className = "file-box";
+
+  const fullUrl = window.location.origin + file.url;
+  let content = "";
+  const lower = file.url.toLowerCase();
+
+  // ✅ IMAGE
+  if (lower.match(/\.(jpg|jpeg|png|gif|webp)$/)) {
+    content = `<img src="${file.url}" style="max-width:100%;border-radius:10px;">`;
+  }
+  // ✅ PDF (direct preview)
+  else if (lower.match(/\.pdf$/)) {
+    content = `<iframe src="${file.url}" width="100%" height="500" style="border-radius:10px;border:none;"></iframe>`;
+  }
+  // ✅ Other documents
+  else {
+    content = `<iframe src="https://docs.google.com/gview?url=${encodeURIComponent(fullUrl)}&embedded=true" width="100%" height="500" style="border-radius:10px;border:none;"></iframe>`;
+  }
+
+  div.innerHTML = `
+    <h4 style="margin: 0 0 10px 0; word-break: break-all;">${file.name}</h4>
+    ${content}
+
+    <div class="actions" style="margin-top:10px;">
+      <button onclick="copyLink('${fullUrl}')">Copy Link</button>
+      <button onclick="window.open('${fullUrl}', '_blank')">Open</button>
+      <button onclick="deleteFile('${file.url}', this)">Delete</button>
+    </div>
+  `;
+
+  filesDiv.appendChild(div);
+}
+
+// 🔥 DELETE
+function deleteFile(url, btn) {
+  btn.closest('.file-box').remove();
+  currentFiles = currentFiles.filter(f => f.url !== url);
+  saveFiles();
+}
+
+// 🔥 COPY
+function copyLink(url) {
+  navigator.clipboard.writeText(url);
+  alert("Link copied!");
+}
+
+// 🔥 INIT
+loadFiles();
+</script>
+
+</body>
+</html>

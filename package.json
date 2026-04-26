@@ -1,0 +1,20 @@
+{
+  "name": "dontpad",
+  "version": "1.0.0",
+  "description": "YeahPad - Notes and File Sharing App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["notes", "file-upload", "express", "dontpad"],
+  "author": "Manikanta",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1",
+    "multer": "^2.1.1"
+  }
+}
