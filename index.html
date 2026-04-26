@@ -377,31 +377,42 @@ function showFile(file) {
   let content = "";
   const lower = file.url.toLowerCase();
 
-  // ✅ IMAGE
+  // IMAGE
   if (lower.match(/\.(jpg|jpeg|png|gif|webp)$/)) {
     content = `<img src="${file.url}" style="max-width:100%;border-radius:10px;">`;
   }
-  // ✅ PDF (direct preview)
+
+  // PDF
   else if (lower.match(/\.pdf$/)) {
-    content = `<iframe src="${file.url}" width="100%" height="500" style="border-radius:10px;border:none;"></iframe>`;
+    content = `<iframe src="${file.url}" width="100%" height="500"></iframe>`;
   }
-  // ✅ Other documents
+
+  // OTHER FILES
   else {
-    content = `<iframe src="https://docs.google.com/gview?url=${encodeURIComponent(fullUrl)}&embedded=true" width="100%" height="500" style="border-radius:10px;border:none;"></iframe>`;
+    content = `
+      <iframe 
+        src="https://docs.google.com/gview?url=${encodeURIComponent(fullUrl)}&embedded=true"
+        width="100%" height="500">
+      </iframe>
+    `;
   }
 
   div.innerHTML = `
-    <h4 style="margin: 0 0 10px 0; word-break: break-all;">${file.name}</h4>
+    <h4>${file.name || "File"}</h4>
     ${content}
 
-    <div class="actions" style="margin-top:10px;">
+    <div class="actions">
       <button onclick="copyLink('${fullUrl}')">Copy Link</button>
       <button onclick="window.open('${fullUrl}', '_blank')">Open</button>
       <button onclick="deleteFile('${file.url}', this)">Delete</button>
     </div>
   `;
+
+  // 🔥 THIS LINE WAS MISSING
+  filesDiv.appendChild(div);
 }
 
+  
 // 🔥 DELETE
 function deleteFile(url, btn) {
   btn.closest('.file-box').remove();
