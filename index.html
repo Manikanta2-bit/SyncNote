@@ -7,334 +7,127 @@
   <!-- ✅ Favicon -->
   <link rel="icon" href="https://i.ibb.co/HL21QGst/seresfes.png">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Roboto;
-      background-color: #9f98de;
-    }
+  <!-- ✅ Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9080584674062686"
+     crossorigin="anonymous"></script>
 
-    /* NAVBAR */
-    .navbar {
-      background: #0087fe;
-      padding: 10px 20px;
-      border-bottom: 1px solid #ddd;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo-box {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-box img {
-      width: 45px;
-      height: 45px;
-      border-radius: 10px;
-      object-fit: contain;
-    }
-
-    .logo-box span {
-      font-size: 20px;
-      font-weight: bold;
-      color: #0A66C2;
-    }
-
-    .nav-links a {
-      margin-left: 15px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-
-    .nav-links a:hover {
-      color: #0A66C2;
-    }
-
-    /* HERO */
-    .hero {
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    .hero img {
-      width: 100px;
-      border-radius: 12px;
-    }
-
-    /* MAIN */
-    .main {
-      display: flex;
-      justify-content: center;
-      margin-top: 30px;
-    }
-
-    .card {
-      width: 600px;
-      background: #fff;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      padding: 15px;
-    }
-
-    .workspace-box {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .workspace-box input {
-      flex: 1;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      outline: none;
-    }
-
-    .workspace-box button {
-      margin-top: 0;
-      padding: 10px 15px;
-    }
-
-    textarea {
-      width: 100%;
-      height: 200px;
-      border: none;
-      outline: none;
-      font-size: 16px;
-    }
-
-    button {
-      background: #0A66C2;
-      color: white;
-      padding: 8px 12px;
-      border: none;
-      margin-top: 10px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-
-    .file-box {
-      background: white;
-      border: 1px solid #ddd;
-      padding: 10px;
-      border-radius: 8px;
-      margin-top: 15px;
-    }
-
-    .actions {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 10px;
-      color: gray;
-    }
-
-    img { max-width: 100%; }
-    iframe { width: 100%; height: 250px; }
-
-    /* SOCIAL SIDEBAR */
-    .social-sidebar {
-      position: fixed;
-      top: 40%;
-      left: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 1000;
-    }
-
-    .social-sidebar img {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      transition: 0.3s;
-    }
-
-    .social-sidebar img:hover {
-      transform: scale(1.2);
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: white;
-      margin-top: 40px;
-      border-top: 1px solid #ddd;
-    }
-    .dark-mode {
-  background-color: #121212;
-  color: white;
-}
-
-.dark-mode .card {
-  background: #1e1e1e;
-  color: white;
-}
-
-.dark-mode .workspace-box input {
-  background: #2a2a2a;
-  color: white;
-  border-color: #444;
-}
-
-.dark-mode textarea {
-  background: #1e1e1e;
-  color: white;
-}
-
-.dark-mode .navbar {
-  background: #1e1e1e;
-}
-body {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-}
-.file-box {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  margin-top: 15px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.file-box button {
-  background: #0A66C2;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.file-box button:hover {
-  background: #004182;
-}
-    footer a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #0A66C2;
-    }
-  </style>
+  <!-- ✅ External Stylesheet -->
+  <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
 
-
-
 <!-- NAVBAR -->
-<div class="navbar">
+<nav class="navbar">
   <div class="logo-box">
-    <img src="https://i.ibb.co/HL21QGst/seresfes.png" alt="YeahPad Logo">
-    <span>YeahPad</span>
-    
-  </div>
-
-  <div class="nav-links">
-    <a href="/">Home</a>  
-    <a href="/blog.html">Blog</a>
-    <a href="/about.html">About</a>
-    <a href="/contact.html">Contact</a>
-  </div>
-</div>
-<!-- HERO -->
-<div class="hero">
-  <img src="https://i.ibb.co/HL21QGst/seresfes.png" alt="logo">
-  <h2>Write. Upload. Share.</h2>
-</div>
-<!-- SOCIAL SIDEBAR -->
-<div class="social-sidebar">
-  <a href="https://www.linkedin.com/in/manikanta-j-87741a32a/" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
-  </a>
-
-  <a href="https://www.instagram.com/_.maniiee._reddy_" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-  </a>
-
-  <a href="https://github.com/Manikanta2-bit" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png">
-  </a>
-
-  <a href="https://twitter.com/Manikanta1k2006" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png">
-  </a>
-</div>
+    <img src="https://i.ibb.co/HL21QGst/seresfes.png">
+    <span class="brand-text">YeahPad</span>
+    </div>
+    <nav class="nav-links">
+      <a href="/blogs.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms & Conditions</a>
+    </nav>
+  
+</nav>
 
 <!-- MAIN -->
-<div class="main">
+<main class="main">
   <div class="card">
+   <h1>Free File Sharing & Notes Platform</h1>
+  <h2>Upload, write, and share instantly</h2>
+    <!-- 🔥 AD (TOP) -->
+    <div class="ad-container">
+      <ins class="adsbygoogle"
+           style="display:block; width: 100%;"
+           data-ad-client="ca-pub-9080584674062686"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
 
-    <div class="workspace-box">
-      <input type="text" id="workspaceName" placeholder="Enter your accessible workspacename..." onkeypress="if(event.key === 'Enter') handleJoin()">
+    <div class="workspace-controls">
+      <input type="text" id="workspaceName" placeholder="Enter workspace name">
       <button onclick="handleJoin()">Open Workspace</button>
     </div>
 
     <textarea id="editor" placeholder="Write something..."></textarea>
 
-    <input type="file" id="fileInput">
-    <button onclick="uploadFile()">Upload</button>
+    <div class="upload-controls">
+      <input type="file" id="fileInput">
+      <button onclick="uploadFile()">Upload</button>
+      <p class="upload-note">Supported: Images, PDFs, Docs, PPTs 
+        <br>If you are not seeing a preview for PDFs, Docs, or PPTs, please open them in a new tab using the "Open" button.
+      </p>
+    </div>
 
     <div id="files"></div>
 
   </div>
-</div>
-
-<h2 align="center">Free File Sharing & Notes Platform</h2>
-<p align="center">Upload, share, and manage your files easily.</p>
+</main>
 
 <!-- FOOTER -->
-<footer>
-  <a href="/privacy.html">Privacy Policy</a>
-  <a href="/terms.html">Terms</a>
-  <a href="/about.html">About</a>
-  <a href="/contact.html">Contact</a>
-  <a href="/blogs.html">Blogs</a>
-    <br><br>
-  <font dir="auto" style="vertical-align: inherit;">© 2026 Manikanta J</font>
+<footer class="site-footer">
+  <!-- 🔥 AD (BOTTOM) -->
+  <div class="footer-ad">
+    <ins class="adsbygoogle"
+         style="display:block; width: 100%;"
+         data-ad-client="ca-pub-9080584674062686"
+         data-ad-slot="0987654321"
+         data-ad-format="auto"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <nav>
+    <a href="/blogs.html">Blog</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms & Conditions</a>
+    
+    
+
+     
+  </nav>
+<p class="socials"> 
+  <a href="https://www.linkedin.com/in/manikanta-j-87741a32a " target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/74038190/235294012-0a55e343-37ad-4b0f-924f-c8431d9d2483.gif" alt="LinkedIn" width="50" margin-bottom=0 /> 
+  <a href="https://www.instagram.com/mothkur_manireddy__234/" target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/74038190/235294013-a33e5c43-a01c-43f6-b44d-a406d8b4ab75.gif" alt="Instagram" width="50"/>
+   <a href="https://x.com/Manikanta1k2006" target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/74038190/235294011-b8074c31-9097-4a65-a594-4151b58743a8.gif" alt="X" width="50"/> 
+    <a href="mailto:manireddymani359@gmail.com" target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/74038190/216122065-2f028bae-25d6-4a3c-bc9f-175394ed5011.png" alt="Email" width="50"/>  
+<br><br>
+      <div class="copyright">&copy; 2026 YeahPad. All rights reserved.</div>
 </footer>
 
 <script>
 const filesDiv = document.getElementById("files");
-
-// 🔥 Extract document ID from URL
 const docId = window.location.pathname.substring(1) || "main";
 let currentFiles = [];
 
-// ✅ Pre-fill input with current workspace name (if any)
-document.getElementById("workspaceName").value = decodeURIComponent(window.location.pathname.substring(1));
-
-// 🔥 HANDLE JOIN
+// JOIN WORKSPACE
 function handleJoin() {
   const name = document.getElementById("workspaceName").value.trim();
-  if (name) {
-    window.location.href = "/" + encodeURIComponent(name);
-  }
+  if (name) window.location.href = "/" + encodeURIComponent(name);
 }
 
-// 🔥 LOAD FILES
+// LOAD
 async function loadFiles() {
   const res = await fetch("/doc/" + docId);
   const data = await res.json();
 
   currentFiles = data.files || [];
-
   document.getElementById("editor").value = data.content || "";
 
   filesDiv.innerHTML = "";
   currentFiles.forEach(showFile);
 }
 
-// 🔥 SAVE FILES
+// SAVE
 async function saveFiles() {
   await fetch("/doc/" + docId, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {"Content-Type": "application/json"},
     body: JSON.stringify({
       content: document.getElementById("editor").value,
       files: currentFiles
@@ -342,14 +135,12 @@ async function saveFiles() {
   });
 }
 
-// 🔥 AUTO SAVE TEXT
-let typingTimer;
+// AUTO SAVE
 document.getElementById("editor").addEventListener("input", () => {
-  clearTimeout(typingTimer);
-  typingTimer = setTimeout(saveFiles, 800);
+  setTimeout(saveFiles, 800);
 });
 
-// 🔥 UPLOAD
+// UPLOAD
 async function uploadFile() {
   const file = document.getElementById("fileInput").files[0];
   if (!file) return alert("Select file");
@@ -357,76 +148,76 @@ async function uploadFile() {
   const formData = new FormData();
   formData.append("file", file);
 
-  const res = await fetch("/upload", {
-    method: "POST",
-    body: formData
-  });
-
+  const res = await fetch("/upload", { method: "POST", body: formData });
   const data = await res.json();
 
-  currentFiles.push({ url: data.url, name: data.name });
-  showFile({ url: data.url, name: data.name });
+  const fileObj = {
+    url: data.url,
+    name: data.name || file.name
+  };
+
+  currentFiles.push(fileObj);
+  showFile(fileObj);
   saveFiles();
 }
 
+// DISPLAY FILE
 function showFile(file) {
   const div = document.createElement("div");
   div.className = "file-box";
 
   const fullUrl = window.location.origin + file.url;
-  let content = "";
   const lower = file.url.toLowerCase();
+
+  let content = "";
 
   // IMAGE
   if (lower.match(/\.(jpg|jpeg|png|gif|webp)$/)) {
-    content = `<img src="${file.url}" style="max-width:100%;border-radius:10px;">`;
+    content = `<img src="${file.url}">`;
   }
 
-  // PDF
-  else if (lower.match(/\.pdf$/)) {
-    content = `<iframe src="${file.url}" width="100%" height="500"></iframe>`;
+  // PDF (mobile fix)
+  else if (lower.endsWith(".pdf")) {
+    content = `
+      <iframe src="${file.url}"></iframe>
+      <br>
+      <a href="${file.url}" target="_blank">📄 Open PDF</a>
+    `;
   }
 
-  // OTHER FILES
+  // DOCS / PPT
   else {
     content = `
-      <iframe 
-        src="https://docs.google.com/gview?url=${encodeURIComponent(fullUrl)}&embedded=true"
-        width="100%" height="500">
-      </iframe>
+      <iframe src="https://docs.google.com/gview?url=${encodeURIComponent(fullUrl)}&embedded=true"></iframe>
     `;
   }
 
   div.innerHTML = `
-    <h4>${file.name || "File"}</h4>
+    <h4>${file.name}</h4>
     ${content}
-
-    <div class="actions">
-      <button onclick="copyLink('${fullUrl}')">Copy Link</button>
-      <button onclick="window.open('${fullUrl}', '_blank')">Open</button>
+    <div class="file-actions">
+      <button onclick="copyLink('${fullUrl}')">Copy</button>
+      <button onclick="window.open('${fullUrl}')">Open</button>
       <button onclick="deleteFile('${file.url}', this)">Delete</button>
     </div>
   `;
 
-  // 🔥 THIS LINE WAS MISSING
   filesDiv.appendChild(div);
 }
 
-  
-// 🔥 DELETE
+// DELETE
 function deleteFile(url, btn) {
-  btn.closest('.file-box').remove();
+  btn.parentElement.remove();
   currentFiles = currentFiles.filter(f => f.url !== url);
   saveFiles();
 }
 
-// 🔥 COPY
+// COPY
 function copyLink(url) {
   navigator.clipboard.writeText(url);
-  alert("Link copied!");
+  alert("Copied!");
 }
 
-// 🔥 INIT
 loadFiles();
 </script>
 
