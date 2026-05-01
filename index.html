@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>YeahPad</title>
+  <title>SyncNote</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- ✅ Favicon -->
-  <link rel="icon" href="https://i.ibb.co/HL21QGst/seresfes.png">
+  <link rel="icon" href="https://i.ibb.co/HTzPwkHc/Chat-GPT-Image-May-1-2026-10-30-23-AM.png">
 
   <!-- ✅ Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9080584674062686"
@@ -13,6 +13,158 @@
 
   <!-- ✅ External Stylesheet -->
   <link rel="stylesheet" href="/styles.css">
+
+  <!-- ✅ UI/UX Improvements -->
+  <style>
+    /* Split Layout Framework */
+    .container {
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .header-text {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+    .header-text h1 { font-size: 2.4rem; margin-bottom: 10px; }
+    .header-text h2 { font-size: 1.2rem; font-weight: 400; opacity: 0.9; }
+
+    .split-layout {
+      display: flex;
+      gap: 25px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    /* Left Panel: Files */
+    .panel-left {
+      flex: 0 0 40%;
+      max-width: 40%;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      position: sticky;
+      top: 20px;
+      box-sizing: border-box;
+    }
+    /* Custom scrollbar for Left Panel */
+    .panel-left::-webkit-scrollbar { width: 8px; }
+    .panel-left::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+    .panel-left::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+    .panel-left::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    
+    .panel-heading {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      color: #1e293b;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 10px;
+    }
+
+    /* Right Panel: Editor */
+    .panel-right {
+      flex: 1;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-sizing: border-box;
+    }
+
+    /* File Card Polish */
+    .file-box {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .file-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Workspace Controls */
+    .workspace-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .workspace-controls input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 1px solid #ced4da;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    /* Clean Upload Bar */
+    .upload-controls {
+      background: #f8f9fa;
+      border: 1px dashed #ced4da;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .upload-bar {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .upload-bar input[type="file"] {
+      flex: 1;
+      font-size: 15px;
+    }
+    .upload-note {
+      margin: 0;
+      font-size: 13px;
+      color: #6c757d;
+      line-height: 1.5;
+    }
+
+    /* Editor Improvements */
+    #editor {
+      width: 100%;
+      min-height: 400px;
+      flex: 1;
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 20px;
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+      resize: vertical;
+      box-sizing: border-box;
+      font-family: inherit;
+      background-color: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    #editor:focus {
+      outline: none;
+      border-color: #80bdff;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    /* Responsive overrides */
+    @media (max-width: 850px) {
+      .split-layout { flex-direction: column; }
+      .panel-left, .panel-right { max-width: 100%; position: static; }
+      .panel-left { max-height: 55vh; }
+      .upload-bar { flex-direction: column; align-items: stretch; }
+    }
+    @media (max-width: 600px) {
+      .panel-left, .panel-right { padding: 20px; }
+    }
+  </style>
 </head>
 
 <body>
@@ -20,8 +172,8 @@
 <!-- NAVBAR -->
 <nav class="navbar">
   <div class="logo-box">
-    <img src="https://i.ibb.co/HL21QGst/seresfes.png">
-    <span class="brand-text">YeahPad</span>
+    <img src="https://i.ibb.co/HTzPwkHc/Chat-GPT-Image-May-1-2026-10-30-23-AM.png">
+    <span class="brand-text">SyncNote</span>
     </div>
     <nav class="nav-links">
       <a href="/blogs.html">Blog</a>
@@ -35,36 +187,41 @@
 
 <!-- MAIN -->
 <main class="main">
-  <div class="card">
-   <h1>Free File Sharing & Notes Platform</h1>
-  <h2>Upload, write, and share instantly</h2>
-    <!-- 🔥 AD (TOP) -->
-    <div class="ad-container">
-      <ins class="adsbygoogle"
-           style="display:block; width: 100%;"
-           data-ad-client="ca-pub-9080584674062686"
-           data-ad-slot="1234567890"
-           data-ad-format="auto"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <div class="container">
+    <div class="header-text">
+      <h1>Free File Sharing & Notes Platform</h1>
+      <h2>Upload, write, and share instantly</h2>
     </div>
 
-    <div class="workspace-controls">
-      <input type="text" id="workspaceName" placeholder="Enter workspace name">
-      <button onclick="handleJoin()">Open Workspace</button>
+    <div class="split-layout">
+      <!-- LEFT PANEL: Files Preview (~40%) -->
+      <div class="panel-left">
+        <h3 class="panel-heading">Your Files</h3>
+        <div id="files"></div>
+      </div>
+
+      <!-- RIGHT PANEL: Editor (~60%) -->
+      <div class="panel-right">
+        <!-- 🔥 AD (TOP) -->
+        
+        <div class="workspace-controls">
+          <input type="text" id="workspaceName" placeholder="Enter workspace name">
+          <button onclick="handleJoin()">Open Workspace</button>
+        </div>
+
+        <div class="upload-controls">
+          <div class="upload-bar">
+            <input type="file" id="fileInput">
+            <button onclick="uploadFile()">Upload</button>
+          </div>
+          <p class="upload-note">Supported: Images, PDFs, Docs, PPTs 
+            <br>If you are not seeing a preview for PDFs, Docs, or PPTs, please open them in a new tab using the "Open" button.
+          </p>
+        </div>
+
+        <textarea id="editor" placeholder="Write something..."></textarea>
+      </div>
     </div>
-
-    <textarea id="editor" placeholder="Write something..."></textarea>
-
-    <div class="upload-controls">
-      <input type="file" id="fileInput">
-      <button onclick="uploadFile()">Upload</button>
-      <p class="upload-note">Supported: Images, PDFs, Docs, PPTs 
-        <br>If you are not seeing a preview for PDFs, Docs, or PPTs, please open them in a new tab using the "Open" button.
-      </p>
-    </div>
-
-    <div id="files"></div>
-
   </div>
 </main>
 
@@ -79,7 +236,14 @@
          data-ad-format="auto"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-
+<div class="ad-container">
+      <ins class="adsbygoogle"
+           style="display:block; width: 100%;"
+           data-ad-client="ca-pub-9080584674062686"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
   <nav>
     <a href="/blogs.html">Blog</a>
     <a href="/about.html">About</a>
@@ -97,7 +261,7 @@
    <a href="https://x.com/Manikanta1k2006" target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/74038190/235294011-b8074c31-9097-4a65-a594-4151b58743a8.gif" alt="X" width="50"/> 
     <a href="mailto:manireddymani359@gmail.com" target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/74038190/216122065-2f028bae-25d6-4a3c-bc9f-175394ed5011.png" alt="Email" width="50"/>  
 <br><br>
-      <div class="copyright">&copy; 2026 YeahPad. All rights reserved.</div>
+      <div class="copyright">&copy; 2026 SyncNote. All rights reserved.</div>
 </footer>
 
 <script>
