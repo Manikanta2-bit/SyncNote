@@ -1,272 +1,390 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>SyncNote</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SyncNote - Instant Workspace & Online Notes</title>
 
-  <!-- ✅ Favicon -->
+  <!-- ✅ SEO & Meta Tags -->
+  <meta name="description" content="SyncNote is a modern, free platform for creating instant workspaces, writing notes, and sharing files across devices without logging in.">
+  <meta name="keywords" content="notes, file sharing, workspace, productivity, instant notes, online notepad, syncnote">
+  <link rel="canonical" href="https://syncnote.app">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- ✅ Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SyncNote - Free Instant Workspace & Notes">
+  <meta property="og:description" content="Write notes, upload files, and share instantly without an account. Your modern productivity workspace.">
+  <meta property="og:image" content="https://i.ibb.co/HTzPwkHc/Chat-GPT-Image-May-1-2026-10-30-23-AM.png">
+
+  <!-- ✅ Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SyncNote - Instant Workspace & Notes">
+  <meta name="twitter:description" content="Write notes, upload files, and share instantly without an account.">
+
+  <!-- ✅ Fonts & Favicon -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="https://i.ibb.co/HTzPwkHc/Chat-GPT-Image-May-1-2026-10-30-23-AM.png">
 
   <!-- ✅ Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9080584674062686"
-     crossorigin="anonymous"></script>
-
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9080584674062686" crossorigin="anonymous"></script>
+  
   <!-- ✅ External Stylesheet -->
   <link rel="stylesheet" href="/styles.css">
 
-  <!-- ✅ UI/UX Improvements -->
+  <!-- ✅ Workspace Specific UI -->
   <style>
     /* Split Layout Framework */
     .container {
       width: 100%;
-      max-width: 1300px;
+      max-width: 1500px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
+      flex: 1;
+      height: 100%;
     }
+    
     .header-text {
       text-align: center;
-      color: #ffffff;
-      margin-bottom: 30px;
+      color: var(--text-main);
+      margin-bottom: 24px;
     }
-    .header-text h1 { font-size: 2.4rem; margin-bottom: 10px; }
-    .header-text h2 { font-size: 1.2rem; font-weight: 400; opacity: 0.9; }
+    .header-text h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .header-text h2 { font-size: 1.1rem; color: var(--text-muted); font-weight: 400; }
 
     .split-layout {
       display: flex;
-      gap: 25px;
-      align-items: flex-start;
+      gap: 24px;
+      align-items: stretch;
       width: 100%;
+      flex: 1;
     }
 
-    /* Left Panel: Files */
+    /* Left Panel: Files Manager */
     .panel-left {
-      flex: 0 0 40%;
-      max-width: 40%;
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      max-height: calc(100vh - 120px);
+      flex: 0 0 28%;
+      max-width: 360px;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      height: calc(100dvh - 150px);
       overflow-y: auto;
       scroll-behavior: smooth;
       position: sticky;
       top: 20px;
-      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
     }
-    /* Custom scrollbar for Left Panel */
-    .panel-left::-webkit-scrollbar { width: 8px; }
-    .panel-left::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
-    .panel-left::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
-    .panel-left::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    .panel-left::-webkit-scrollbar { width: 4px; }
+    .panel-left::-webkit-scrollbar-track { background: transparent; }
+    .panel-left::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    .panel-left::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
     
     .panel-heading {
       margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+      color: var(--text-main);
+      font-weight: 600;
+    }
+    .upload-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
       margin-bottom: 20px;
-      font-size: 1.4rem;
-      color: #1e293b;
-      border-bottom: 2px solid #f1f5f9;
-      padding-bottom: 10px;
+      line-height: 1.4;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
     }
 
-    /* Right Panel: Editor */
+    /* Right Panel: Editor Area */
     .panel-right {
       flex: 1;
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      box-sizing: border-box;
+      gap: 16px;
+      min-width: 0;
     }
 
-    /* File Card Polish */
-    .file-box {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .file-box:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    }
-
-    /* Workspace Controls */
-    .workspace-controls {
+    /* Toolbar */
+    .toolbar {
       display: flex;
-      gap: 10px;
+      gap: 16px;
       flex-wrap: wrap;
     }
-    .workspace-controls input {
+    
+    .workspace-controls, .upload-controls {
+      background: var(--surface);
+      padding: 12px 16px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
       flex: 1;
-      padding: 10px 15px;
-      border: 1px solid #ced4da;
-      border-radius: 6px;
-      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    /* Clean Upload Bar */
-    .upload-controls {
-      background: #f8f9fa;
-      border: 1px dashed #ced4da;
-      border-radius: 8px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    .workspace-controls input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      background: var(--bg-main);
+      color: var(--text-main);
+      font-family: inherit;
     }
+    .workspace-controls input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+      outline: none;
+      background: var(--surface);
+    }
+
     .upload-bar {
       display: flex;
       align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
+      gap: 12px;
+      width: 100%;
     }
     .upload-bar input[type="file"] {
       flex: 1;
-      font-size: 15px;
-    }
-    .upload-note {
-      margin: 0;
-      font-size: 13px;
-      color: #6c757d;
-      line-height: 1.5;
+      font-size: 0.9rem;
+      color: var(--text-muted);
     }
 
-    /* Editor Improvements */
+    /* File Cards */
+    .file-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: 15px;
+      padding: 15px;
+      transition: all 0.2s ease;
+    }
+    .file-box:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+    .file-box h4 {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      color: var(--text-main);
+      word-break: break-all;
+    }
+    .file-actions {
+      margin-top: 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .file-actions button {
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      background: var(--bg-main);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+    .file-actions button:hover {
+      background: var(--border);
+    }
+
+    /* SAAS Premium Editor */
     #editor {
       width: 100%;
-      min-height: 400px;
       flex: 1;
-      font-size: 16px;
-      line-height: 1.6;
-      padding: 20px;
-      border: 1px solid #ced4da;
-      border-radius: 8px;
-      resize: vertical;
-      box-sizing: border-box;
+      min-height: 70dvh; 
+      font-size: 1.15rem;
+      line-height: 1.75;
+      padding: 25px 30px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      resize: none; 
       font-family: inherit;
-      background-color: #fff;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      background-color: var(--surface);
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
     }
     #editor:focus {
       outline: none;
-      border-color: #80bdff;
-      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--primary-light), var(--shadow-md);
+    }
+    #editor::placeholder {
+      color: var(--text-muted);
     }
 
-    /* Responsive overrides */
-    @media (max-width: 850px) {
-      .split-layout { flex-direction: column; }
-      .panel-left, .panel-right { max-width: 100%; position: static; }
-      .panel-left { max-height: 55vh; }
-      .upload-bar { flex-direction: column; align-items: stretch; }
-    }
-    @media (max-width: 600px) {
-      .panel-left, .panel-right { padding: 20px; }
+    /* Mobile Optimizations */
+    @media (max-width: 950px) {
+      .split-layout { 
+        flex-direction: column-reverse; 
+        gap: 15px;
+      }
+      .panel-left { 
+        max-width: 100%; 
+        height: auto; 
+        max-height: 60vh;
+        border-radius: var(--radius-md);
+      }
+      .toolbar {
+        flex-direction: column;
+      }
+      .workspace-controls, .upload-controls {
+        padding: 12px;
+        border-radius: var(--radius-md);
+      }
+      #editor {
+        min-height: 75dvh; /* dvh handles mobile virtual keyboard natively */
+        padding: 20px;
+        font-size: 16px; /* Prevents auto-zoom on iOS Safari */
+      }
+      .header-text { display: none; } 
     }
   </style>
+
+  <!-- ✅ Schema.org Markup for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "SyncNote",
+    "url": "https://syncnote.app",
+    "description": "Free instant workspace for writing notes and sharing files.",
+    "applicationCategory": "Productivity",
+    "operatingSystem": "All"
+  }
+  </script>
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo-box">
+<header class="navbar">
+  <a href="/" class="logo-box" aria-label="SyncNote Home">
     <img src="https://i.ibb.co/HTzPwkHc/Chat-GPT-Image-May-1-2026-10-30-23-AM.png">
     <span class="brand-text">SyncNote</span>
-    </div>
-    <nav class="nav-links">
-      <a href="/blogs.html">Blog</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/Content.html">Content Policy</a>
-      <a href="/privacy.html">Privacy Policy</a>
-      <a href="/terms.html">Terms & Conditions</a>
-    </nav>
+  </a>
   
-</nav>
+  <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle Navigation">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="/blogs.html">Blog</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/Content.html">Content Policy</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </nav>
+</header>
 
 <!-- MAIN -->
 <main class="main">
   <div class="container">
-    <div class="header-text">
+    
+    <header class="header-text">
       <h1>Free File Sharing & Notes Platform</h1>
-      <h2>Upload, write, and share instantly</h2>
-    </div>
+      <h2>Create a workspace, write notes, and upload files instantly.</h2>
+    </header>
+
+    <!-- AdSense Ad Unit [Top-Workspace] -->
+    <!-- <div class="ad-container">Google AdSense Placeholder</div> -->
 
     <div class="split-layout">
-      <!-- LEFT PANEL: Files Preview (~40%) -->
-      <div class="panel-left">
+      
+      <!-- LEFT PANEL: Files Preview -->
+      <aside class="panel-left">
         <h3 class="panel-heading">Your Files</h3>
-        <div id="files"></div>
-      </div>
+        <p class="upload-note">Supported: Images, PDFs, Docs, PPTs. Use "Open" if preview fails.</p>
+        <div id="files" aria-live="polite"></div>
+      </aside>
 
-      <!-- RIGHT PANEL: Editor (~60%) -->
-      <div class="panel-right">
-        <!-- 🔥 AD (TOP) -->
+      <!-- RIGHT PANEL: Editor -->
+      <section class="panel-right">
         
-        <div class="workspace-controls">
-          <input type="text" id="workspaceName" placeholder="Enter workspace name">
-          <button onclick="handleJoin()">Open Workspace</button>
-        </div>
-
-        <div class="upload-controls">
-          <div class="upload-bar">
-            <input type="file" id="fileInput">
-            <button onclick="uploadFile()">Upload</button>
+        <!-- TOOLBAR: Workspace + Upload -->
+        <nav class="toolbar" aria-label="Workspace Tools">
+          <div class="workspace-controls" title="Open or create a new workspace">
+            <input type="text" id="workspaceName" placeholder="Enter workspace name" aria-label="Workspace Name">
+            <button onclick="handleJoin()" aria-label="Open Workspace">Open</button>
           </div>
-          <p class="upload-note">Supported: Images, PDFs, Docs, PPTs 
-            <br>If you are not seeing a preview for PDFs, Docs, or PPTs, please open them in a new tab using the "Open" button.
-          </p>
-        </div>
 
-        <textarea id="editor" placeholder="Write something..."></textarea>
-      </div>
+          <div class="upload-controls" title="Upload a file to this workspace">
+            <div class="upload-bar">
+              <input type="file" id="fileInput" aria-label="File Upload Input">
+              <button onclick="uploadFile()" aria-label="Upload File Button">Upload</button>
+            </div>
+          </div>
+        </nav>
+
+        <textarea id="editor" placeholder="Start typing your notes here..." aria-label="Text Editor"></textarea>
+      </section>
+
     </div>
   </div>
 </main>
 
 <!-- FOOTER -->
 <footer class="site-footer">
-  <!-- 🔥 AD (BOTTOM) -->
-  <div class="footer-ad">
-    <ins class="adsbygoogle"
-         style="display:block; width: 100%;"
-         data-ad-client="ca-pub-9080584674062686"
-         data-ad-slot="0987654321"
-         data-ad-format="auto"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-<div class="ad-container">
-      <ins class="adsbygoogle"
-           style="display:block; width: 100%;"
-           data-ad-client="ca-pub-9080584674062686"
-           data-ad-slot="1234567890"
-           data-ad-format="auto"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+  <!-- AdSense Ad Unit [Footer] -->
+  <!-- <div class="ad-container">Google AdSense Placeholder</div> -->
+
   <nav>
     <a href="/blogs.html">Blog</a>
     <a href="/about.html">About</a>
     <a href="/contact.html">Contact</a>
     <a href="/Content.html">Content Policy</a>
-    <a href="/privacy.html">Privacy Policy</a>
-    <a href="/terms.html">Terms & Conditions</a>
-    
-    
-
-     
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
   </nav>
-<p class="socials"> 
-  <a href="https://www.linkedin.com/in/manikanta-j-87741a32a " target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/74038190/235294012-0a55e343-37ad-4b0f-924f-c8431d9d2483.gif" alt="LinkedIn" width="50" margin-bottom=0 /> 
-  <a href="https://www.instagram.com/mothkur_manireddy__234/" target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/74038190/235294013-a33e5c43-a01c-43f6-b44d-a406d8b4ab75.gif" alt="Instagram" width="50"/>
-   <a href="https://x.com/Manikanta1k2006" target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/74038190/235294011-b8074c31-9097-4a65-a594-4151b58743a8.gif" alt="X" width="50"/> 
-    <a href="mailto:manireddymani359@gmail.com" target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/74038190/216122065-2f028bae-25d6-4a3c-bc9f-175394ed5011.png" alt="Email" width="50"/>  
-<br><br>
-      <div class="copyright">&copy; 2026 SyncNote. All rights reserved.</div>
+  
+  <div class="socials"> 
+    <a href="https://www.linkedin.com/in/manikanta-j-87741a32a" aria-label="LinkedIn" target="_blank" rel="noreferrer"> 
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"/> 
+    </a>
+    <a href="https://www.instagram.com/_.maniiee._reddy_" aria-label="Instagram" target="_blank" rel="noreferrer"> 
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"/>
+    </a>
+    <a href="https://x.com/Manikanta1k2006" aria-label="Twitter X" target="_blank" rel="noreferrer"> 
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X"/> 
+    </a>
+    <a href="mailto:manireddymani359@gmail.com" aria-label="Email" target="_blank" rel="noreferrer"> 
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email"/>  
+    </a>
+  </div>
+
+  <div class="copyright">&copy; 2026 SyncNote. All rights reserved. Built for modern productivity.</div>
 </footer>
 
 <script>
+/* =======================================
+   UI INTERACTIONS
+   ======================================= */
+// Mobile menu toggle
+const menuToggleBtn = document.getElementById('menuToggle');
+menuToggleBtn.addEventListener('click', function() {
+  const isExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
+  menuToggleBtn.setAttribute('aria-expanded', !isExpanded);
+  document.getElementById('navLinks').classList.toggle('show');
+});
+
+/* =======================================
+   BACKEND LOGIC (UNMODIFIED)
+   ======================================= */
 const filesDiv = document.getElementById("files");
 const docId = window.location.pathname.substring(1) || "main";
 let currentFiles = [];
@@ -339,13 +457,13 @@ function showFile(file) {
 
   // IMAGE
   if (lower.match(/\.(jpg|jpeg|png|gif|webp)$/)) {
-    content = `<img src="${file.url}">`;
+    content = `<img src="${file.url}" loading="lazy" alt="Preview">`;
   }
 
   // PDF (mobile fix)
   else if (lower.endsWith(".pdf")) {
     content = `
-      <iframe src="${file.url}"></iframe>
+      <iframe src="${file.url}" loading="lazy"></iframe>
       <br>
       <a href="${file.url}" target="_blank">📄 Open PDF</a>
     `;
@@ -354,7 +472,7 @@ function showFile(file) {
   // DOCS / PPT
   else {
     content = `
-      <iframe src="https://docs.google.com/gview?url=${encodeURIComponent(fullUrl)}&embedded=true"></iframe>
+      <iframe src="https://docs.google.com/gview?url=${encodeURIComponent(fullUrl)}&embedded=true" loading="lazy"></iframe>
     `;
   }
 
@@ -362,9 +480,9 @@ function showFile(file) {
     <h4>${file.name}</h4>
     ${content}
     <div class="file-actions">
-      <button onclick="copyLink('${fullUrl}')">Copy</button>
-      <button onclick="window.open('${fullUrl}')">Open</button>
-      <button onclick="deleteFile('${file.url}', this)">Delete</button>
+      <button onclick="copyLink('${fullUrl}')" aria-label="Copy file link">Copy</button>
+      <button onclick="window.open('${fullUrl}')" aria-label="Open file">Open</button>
+      <button onclick="deleteFile('${file.url}', this)" aria-label="Delete file">Delete</button>
     </div>
   `;
 
