@@ -9,12 +9,21 @@
   "engines": {
     "node": ">=18"
   },
-  "keywords": ["notes", "file-upload", "express", "dontpad"],
+  "keywords": [
+    "notes",
+    "file-upload",
+    "express",
+    "dontpad"
+  ],
   "author": "Manikanta",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "cloudinary": "^1.41.3",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "multer": "^2.1.1"
+    "mongoose": "^9.7.3",
+    "multer": "^2.1.1",
+    "multer-storage-cloudinary": "^4.0.0"
   }
 }
